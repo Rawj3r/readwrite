@@ -3,7 +3,7 @@
 class ReadWrite{
 
     // encapsulate them
-    protected $path;
+    public $path;
     protected $handle;
 
     public function __construct($path){
@@ -18,11 +18,11 @@ class ReadWrite{
 
         //test if we have a successfully created a handle to our file
         if($this->handle){
-            "$this->path was successfully opened for reading";
+           echo "$this->path was successfully opened for reading";
         }else{
-            "failed to open $this->path for reading";
+            echo "failed to open $this->path for reading";
         }
     }
 }
 
-new ReadWrite("files/data.txt");
+new ReadWrite('./files/data.txt');
