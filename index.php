@@ -1,14 +1,28 @@
 <?php
 
-//define relative path to source, which is our file
-$path = 'files/stock.txt';
+class ReadWrite{
 
-//attempt to open a file for reading
-$handle = fopen($path, 'r');
+    // encapsulate them
+    protected $path;
+    protected $handle;
 
-//test if we have a successfully created a handle to our file
-if($handle){
-    "$path was successfully opened for reading";
-}else{
-    "failed to open $path for reading";
+    public function __construct($path){
+        $this->path = $path;
+        $this->files();
+    }
+
+    // our main method to perform actions to the file
+    public function files(){
+        // lets open our file
+        $this->handle = fopen($this->path, 'r');
+
+        //test if we have a successfully created a handle to our file
+        if($this->handle){
+            "$this->path was successfully opened for reading";
+        }else{
+            "failed to open $this->path for reading";
+        }
+    }
 }
+
+new ReadWrite("files/data.txt");
